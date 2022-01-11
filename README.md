@@ -1,1 +1,1 @@
-catalog-api
+This is a demo project to experiment and learn about NET 6 minimal API's
