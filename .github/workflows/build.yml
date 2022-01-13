@@ -5,15 +5,15 @@ jobs:
   build:
     name: build
     runs-on: ubuntu-latest
-    
+        
     steps:
-    - name: 'checkout source code'
-    uses: actions/checkout@v2
-    - name: 'install .NET 6 SDK'
-    uses: actions/setup-dotnet@v1
-    with:
-      dotnet-version: 6.0.x
-    - name: 'restore .NET dependencies'
-    run: dotnet restore
-    - name: 'execute dotnet build cmd'
-    run: dotnet build --no-restore
+    - name: 'Checkout Source Code'
+      uses: actions/checkout@v2
+    - name: 'Install .NET Core 6.0.x SDK'
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: 'Restore .NET Dependencies'
+      run: dotnet restore
+    - name: 'Execute Dotnet Build'
+      run: dotnet build --no-restore
