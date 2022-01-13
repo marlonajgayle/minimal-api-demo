@@ -1,10 +1,11 @@
 name: dotnet-build
 on: [push]
 
-  jobs:
+jobs:
+  build:
     name: build
     runs-on: ubuntu-latest
-  
+    
     steps:
     - name: 'checkout source code'
     uses: actions/checkout@v2
