@@ -1,0 +1,19 @@
+name: dotnet-build
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 'checkout source code'
+      uses: actions/checkout@v2
+      
+    - name: 'install .NET 6 SDK'
+      uses: actions/dotnet-setup@v1
+      
+    - name: 'restore .NET dependencies'
+      run: dotnet restore
+      
+    - name: 'execute dotnet build cmd'
+      run: dotnet build --no-restore
