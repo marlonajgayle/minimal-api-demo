@@ -1,0 +1,29 @@
+name: dotnet-ci-build
+on: push
+
+jobs:
+  ci-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout source code'
+      - uses: actions/checkout@v4
+
+      - name: 'Install .NET 8 SDK'
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+
+      - name: 'Restore .NET dependecies'
+      - run: dotnet restore
+
+      - name: 'Build .NET project'
+      - run: dotnet build -c Release
+
+      - name: 'Publish .NET project'
+      - run: dotnet publish -c Release -o ${{ github.workspace }}\app
+
+      - name: 'Archive build artifact'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: api-demo
+          path: ${{ github.workspace }}\artifacts
