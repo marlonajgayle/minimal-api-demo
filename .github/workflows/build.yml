@@ -2,8 +2,9 @@ name: dotnet-ci-build
 on: push
 
 jobs:
-  ci-build:
+  build:
     runs-on: ubuntu-latest
+    
     steps:
       - name: 'Checkout source code'
       - uses: actions/checkout@v4
@@ -13,7 +14,7 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
-      - name: 'Restore .NET dependecies'
+      - name: 'Restore .NET dependencies'
       - run: dotnet restore
 
       - name: 'Build .NET project'
